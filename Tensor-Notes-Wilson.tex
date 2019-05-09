@@ -1,0 +1,496 @@
+\documentclass{beamer}
+
+\usepackage{dcounter}
+%\usepackage{../exercise}
+%\usepackage{../math}
+\usepackage{enumerate}
+\usepackage{tikz}
+
+%% Homotopism arrows.
+\newcommand{\ddd}{\downarrow\downarrow\downarrow}
+\newcommand{\ddu}{\downarrow\downarrow\uparrow}
+\newcommand{\dde}{\downarrow\downarrow\|}
+\newcommand{\dud}{\downarrow\uparrow\downarrow}
+\newcommand{\duu}{\downarrow\uparrow\uparrow}
+\newcommand{\due}{\downarrow\uparrow\|}
+\newcommand{\ded}{\downarrow\|\downarrow}
+\newcommand{\deu}{\downarrow\|\uparrow}
+\newcommand{\dee}{\downarrow\|\|}
+%%
+\newcommand{\udd}{\uparrow\downarrow\downarrow}
+\newcommand{\udu}{\uparrow\downarrow\uparrow}
+\newcommand{\ude}{\uparrow\downarrow\|}
+\newcommand{\uud}{\uparrow\uparrow\downarrow}
+\newcommand{\uuu}{\uparrow\uparrow\uparrow}
+\newcommand{\uue}{\uparrow\uparrow\|}
+\newcommand{\ued}{\uparrow\|\downarrow}
+\newcommand{\ueu}{\uparrow\|\uparrow}
+\newcommand{\uee}{\uparrow\|\|}
+%%
+\newcommand{\edd}{\|\downarrow\downarrow}
+\newcommand{\edu}{\|\downarrow\uparrow}
+\newcommand{\ede}{\|\downarrow\|}
+\newcommand{\eud}{\|\uparrow\downarrow}
+\newcommand{\euu}{\|\uparrow\uparrow}
+\newcommand{\eue}{\|\uparrow\|}
+\newcommand{\eed}{\|\|\downarrow}
+\newcommand{\eeu}{\|\|\uparrow}
+\newcommand{\eee}{\|\|\|}
+
+\newcommand{\cev}[1]{\reflectbox{\ensuremath{\vec{\reflectbox{\ensuremath{#1}}}}}}
+
+%--Shortcuts--
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\DeclareMathOperator{\Hol}{Hol}
+\DeclareMathOperator{\chr}{char }
+\DeclareMathOperator{\trace}{tr~}
+\DeclareMathOperator{\rad}{rad }
+\DeclareMathOperator{\torrad}{torrad }
+\DeclareMathOperator{\Fun}{Fun }
+\DeclareMathOperator{\Hom}{hom }
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Nil}{Nil }
+\DeclareMathOperator{\Ric}{Rich }
+\DeclareMathOperator{\Scal}{Scal }
+\DeclareMathOperator{\Sym}{Sym }
+\DeclareMathOperator{\Alt}{Alt }
+\DeclareMathOperator{\Her}{Her }
+\DeclareMathOperator{\Adj}{Adj }
+\DeclareMathOperator{\Der}{Der }
+\DeclareMathOperator{\Spin}{Spin }
+\DeclareMathOperator{\JSpin}{JSpin }
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\PGL}{PGL}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\Sp}{Sp}
+\DeclareMathOperator{\GO}{GO}
+\DeclareMathOperator{\GU}{GU}
+\DeclareMathOperator{\GF}{GF}
+\DeclareMathOperator{\Gal}{Gal }
+\DeclareMathOperator{\Gr}{Gr}
+\DeclareMathOperator{\Nuc}{Nuc}
+\DeclareMathOperator{\Cen}{Cen}
+% Lie algebras.
+\DeclareMathOperator{\gl}{\mathfrak{gl}}
+%\DeclareMathOperator{\sl}{\mathfrak{sl}}
+\DeclareMathOperator{\so}{\mathfrak{so}}
+%\DeclareMathOperator{\sp}{\mathfrak{sp}}
+\DeclareMathOperator{\Inn}{Inn}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Inv}{Inv}
+\DeclareMathOperator{\Isom}{Isom}
+\DeclareMathOperator{\Str}{Str}
+\DeclareMathOperator{\Stab}{Stab}
+\DeclareMathOperator{\memb}{memb}
+\DeclareMathOperator{\Cent}{Cen}
+\DeclareMathOperator{\im}{im }
+\DeclareMathOperator{\Res}{Res }
+\DeclareMathOperator{\Ann}{Ann }
+\DeclareMathOperator{\Prob}{Pr}
+\DeclareMathOperator{\rank}{rank }
+\DeclareMathOperator{\Diag}{Diag }
+\DeclareMathOperator{\gr}{gr}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\disc}{disc}
+\DeclareMathOperator{\Out}{Out}
+\DeclareMathOperator{\out}{out}
+\DeclareMathOperator{\supp}{supp}
+
+\newcommand{\Comm}[1]{{\mathsf{Comm}\textrm{-}{#1}}}
+\newcommand{\Set}{{\mathsf{Set}}}
+
+\DeclareMathOperator{\ad}{ad}
+
+\newcommand{\M}{\mathbb{M}}
+\newcommand{\cond}[2]{\overset{#1}{{_{#1}#2}_{#1}}}
+
+\newcommand{\Bi}{\mathsf{Bi} }
+\newcommand{\Grp}{\mathsf{Grp} }
+
+\newcommand{\lt}[1]{{#1}^{\Lsh}}
+\newcommand{\rt}[1]{{#1}^{\Rsh}}
+\newcommand{\lr}[1]{{#1}^{\Lsh\Rsh}}
+\newcommand{\ct}[1]{{#1}^{\uparrow}}
+\newcommand{\perpsum}{\perp} %% \obot is prefered and uses mathabx
+\newcommand{\op}{\circ}
+
+\newcommand{\CC}{\mathcal{C}}
+\newcommand{\LL}[1]{\mathcal{L}_{#1}}
+\newcommand{\RR}[1]{\mathcal{R}_{#1}}
+\newcommand{\MM}[1]{\mathcal{M}_{#1}}
+\newcommand{\LMR}{\mathcal{LMR}}
+\newcommand{\sprod}{\Pi\,}
+
+%======== CORRESPONDENCE ==============
+\newcommand{\Ten}[2]{\mathscr{N}(#1,#2)}
+\newcommand{\Id}[2]{\mathscr{I}(#1,#2)}
+\newcommand{\Op}[2]{\mathscr{Z}(#1,#2)}
+
+
+%\usepackage{ifsym} % \TriangleRight
+\newcommand{\trip}[3]{{_{#2}^{#1}} #3}
+
+\newcommand{\lversor}{\,\reflectbox{\ensuremath{\oslash}}\,}%\obackslash}
+\newcommand{\rversor}{\oslash}
+
+\newcommand{\bm}{*}
+\newcommand{\bmto}{\rightarrowtail}
+
+%  TUPLES===============
+%\usepackage[T1]{fontenc}% http://ctan.org/pkg/fontenc
+\usepackage{aeguill}
+\newcommand{\mm}[1]{\langle #1\rangle}
+\newcommand{\la}{\langle}
+\newcommand{\ra}{\rangle}
+\newcommand{\lga}{\textnormal{\guillemotleft}}
+\newcommand{\rga}{\textnormal{\guillemotright}}
+\makeatletter
+\newsavebox{\@brx}
+\newcommand{\lla}[1][]{\savebox{\@brx}{\(\m@th{#1\langle}\)}%
+  \mathopen{\copy\@brx\kern-0.5\wd\@brx\usebox{\@brx}}}
+\newcommand{\rra}[1][]{\savebox{\@brx}{\(\m@th{#1\rangle}\)}%
+  \mathclose{\copy\@brx\kern-0.5\wd\@brx\usebox{\@brx}}}
+\makeatother
+
+\newcommand{\bbinom}[2]{\begin{bmatrix} #1\\ #2 \end{bmatrix}}
+
+\newcommand{\comp}[1]{\bar{#1}}
+\newcommand{\widecomp}[1]{\overline{#1}}
+\newcommand{\lsa}{\sphericalangle}
+\newcommand{\rsa}{\reflectbox{\ensuremath{\sphericalangle}}}
+\newcommand{\llb}{\llbracket}
+\newcommand{\rrb}{\rrbracket}
+\newcommand{\llp}{\llparenthesis}
+\newcommand{\rrp}{\rrparenthesis}
+
+%\newcommand{\TSat}[3]{#1_{\vDash #2(#3)}}
+%\newcommand{\PSat}[3]{{_{#1\vDash}{#2}}_{#3}}
+%\newcommand{\OpSat}[3]{{_{#1\vDash #2}#3}}
+
+\newcommand{\bra}[1]{\la #1|}
+\newcommand{\ket}[1]{|#1\ra}
+\newcommand{\1}{\mathbbm{1}}
+
+%========== NICE HEBREW CHARACTERS  =====================
+
+\usepackage{cjhebrew}
+\DeclareFontFamily{U}{rcjhbltx}{}
+\DeclareFontShape{U}{rcjhbltx}{m}{n}{<->rcjhbltx}{}
+\DeclareSymbolFont{hebrewletters}{U}{rcjhbltx}{m}{n}
+
+% remove the definitions from amssymb
+\let\aleph\relax\let\beth\relax
+\let\gimel\relax\let\daleth\relax
+
+\DeclareMathSymbol{\aleph}{\mathord}{hebrewletters}{39}
+\DeclareMathSymbol{\beth}{\mathord}{hebrewletters}{98}\let\bet\beth
+\DeclareMathSymbol{\gimel}{\mathord}{hebrewletters}{103}
+\DeclareMathSymbol{\daleth}{\mathord}{hebrewletters}{100}\let\dalet\daleth
+
+\DeclareMathSymbol{\lamed}{\mathord}{hebrewletters}{108}
+\DeclareMathSymbol{\mem}{\mathord}{hebrewletters}{109}\let\mim\mem
+\DeclareMathSymbol{\ayin}{\mathord}{hebrewletters}{96}
+\DeclareMathSymbol{\tsadi}{\mathord}{hebrewletters}{118}
+\DeclareMathSymbol{\qof}{\mathord}{hebrewletters}{114}
+\DeclareMathSymbol{\shin}{\mathord}{hebrewletters}{152}
+\DeclareMathSymbol{\waw}{\mathord}{hebrewletters}{119}
+\DeclareMathSymbol{\vavv}{\mathord}{hebrewletters}{119}
+\DeclareMathOperator{\vav}{{{\ensuremath{\vavv}\,}}}
+
+%===========================================
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\lstdefinelanguage{Hanna}{
+    morekeywords={def, :, =, class, for, while, if, then, else, yield  },
+    sensitive=false, % keywords are not case-sensitive
+    morecomment=[l]{//}, % l is for line comment
+    morecomment=[s]{/*}{*/}, % s is for start and end delimiter
+    morestring=[b]" % defines that strings are enclosed in double quotes
+} %
+\lstset{backgroundcolor=\color{black!20}}
+\lstset{frame=trbl,
+  language=Hanna,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% Table of Contents work:
+%%
+%% Displays the chapter-section table at the beginning.
+%% PENDING: Displays a figure list.
+%% Displays the shorter exercise list at the beginning of
+%% each section.  The \sectoc command is embedded in any
+%% \isection command.
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{minitoc}
+%\setcounter{tocdepth}{2}
+\newcommand{\exercise}[1]{\input{./\thechapter/\thesection/#1}}
+\newcommand{\ichapter}[1]{\chapter{#1}	\input{./\thechapter/index}}
+\newcommand{\isection}[1]{
+	% Notice the section is not incremented yet.
+	\ifnum \value{section}>0
+		\clearpage
+	\fi 
+	\section{#1}
+	\closeExerList
+	\printList{\jobname\thesection.lst}\newList{\exerList}{\jobname\thesection.lst}
+	\input{./\thechapter/\thesection/index}
+}
+
+\usepackage{color}
+
+\tikzset{pics/.cd,
+cube/.style args={#1/#2/#3/#4}{code={
+\coordinate (O) at (0,0,0);
+\coordinate (A) at (0,#2,0);
+\coordinate (B) at (0,#2,#3);
+\coordinate (C) at (0,0,#3);
+\coordinate (D) at (#1,0,0);
+\coordinate (E) at (#1,#2,0);
+\coordinate (F) at (#1,#2,#3);
+\coordinate (G) at (#1,0,#3);
+\draw[black,fill=black!80] (O) -- (C) -- (G) -- (D) -- cycle;
+\draw[black,fill=black!30] (O) -- (A) -- (E) -- (D) -- cycle;
+\draw[black,fill=black!10] (O) -- (A) -- (B) -- (C) -- cycle;
+\draw[black,fill=black!20,opacity=0.8] (D) -- (E) -- (F) -- (G) -- cycle;
+\draw[black,fill=black!20,opacity=0.6] (C) -- (B) -- (F) -- (G) -- cycle;
+\draw[black,fill=black!20,opacity=0.8] (A) -- (B) -- (F) -- (E) -- cycle;
+\node at (0.5*#1,0.5*#2,0.5*#3) {#4};
+}}}
+\tikzset{pics/.cd,
+lwing/.style args={#1/#2/#3/#4}{code={
+\coordinate (O) at ( 0, 0, 0);
+\coordinate (A) at ( 0, 0,#3);
+\coordinate (B) at ( 0,#2,#3);
+\coordinate (C) at ( 0,#2, 0);
+\draw[black,fill=black!20] (O) -- (A) -- (B) -- (C) -- cycle;
+\node at (0,0.5*#2,0.5*#3) {#4};
+}}}
+\tikzset{pics/.cd,
+mwing/.style args={#1/#2/#3/#4}{code={
+\coordinate (O) at ( 0, 0, 0);
+\coordinate (A) at (#1, 0, 0);
+\coordinate (B) at (#1,#2, 0);
+\coordinate (C) at ( 0,#2, 0);
+\draw[black,fill=black!20] (O) -- (A) -- (B) -- (C) -- cycle;
+\node at (0.5*#1,0.5*#2,0) {#4};
+}}}
+\tikzset{pics/.cd,
+rwing/.style args={#1/#2/#3/#4}{code={
+\coordinate (O) at ( 0, 0, 0);
+\coordinate (A) at (#1, 0, 0);
+\coordinate (B) at (#1, 0,#3);
+\coordinate (C) at ( 0, 0,#3);
+\draw[black,fill=black!20] (O) -- (A) -- (B) -- (C) -- cycle;
+\node at (0.5*#1,0,0.5*#3) {#4};
+}}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% Page Style Properties.
+%%
+%% Optional Quire (folded sheets)
+%% Adjusted Margins for Letter/A4 paper
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage -- quire -- makes booklets.
+%% Set the margins. 
+%%% PENDING: figure out why paper sizes are ignored!!
+%\paperwidth 8.5in
+%\paperheight 11in
+%\topmargin 18mm %% 0pt		-- Added to correct A4 to Letter size
+\voffset -0.5in
+%\hoffset 0.5in
+\marginparsep 0.25in
+%\advance \topmargin by -\headheight
+%\advance \topmargin by -\headsep
+\textheight 9in
+\oddsidemargin 0.125in
+\evensidemargin 1.625in
+%\marginparwidth 0.5in
+%\textwidth 6in
+
+\newcommand{\helvetica}[2]
+{\fontfamily{phv}\fontseries{#1}\fontsize{#2}{11}\selectfont}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+%% Extend the header width over the margin.
+\addtolength{\headwidth}{\marginparsep}
+\addtolength{\headwidth}{\marginparwidth}
+ %% Include less info in the headers.
+\fancyhf{}
+%\renewcommand{\chaptermark}[1]{\markboth{\textsf{#1}}{}}
+%\renewcommand{\sectionmark}[1]{\markright{\thesection\ \textsf{#1}}{}}
+%\fancyhead[LE]{\rule[-4pt]{4em}{15pt}%
+%\hspace*{-3em}\textcolor{white}{\bfseries\thepage}}
+\fancyhead[LE,RO]{\framebox[4em][c]{\helvetica{b}{12}\textbf{\thepage}}}
+\fancyhead[LO]{\helvetica{b}{12}\textbf{\rightmark}}
+\fancyhead[RE]{\helvetica{b}{12}\textbf{\leftmark}}
+
+\newcommand{\term}[1]{\emph{#1}\index{#1}}
+%% Index Tools.
+%\usepackage{index}	
+%\usepackage{makeidx}
+%\makeindex
+%\usepackage[hyperindex=true,colorlinks=true,linkcolor=blue]{hyperref}
+%% REMEMBER TO RUN: makeindex Hungerford
+%% do not include .tex in the name.
+%% FOR DEBUG ONLY:
+%\usepackage{showidx}
+
+
+
+\author{James B. Wilson}
+\title{Tools to Tame the Tensor}
+\date{\today}
+
+%\def\exerList{}
+
+\begin{document}
+%\helvetica{m}{10}
+%\maketitle
+%\titlepage
+%\include{cover}
+%\frontmatter
+%\dominitoc
+%\dosecttoc
+%\dominilof
+%\dominilot
+%\tableofcontents
+%\cleardoublepage
+
+%\include{preface}
+%\cleardoublepage
+%\part{Notation and Usage}
+%\renewcommand\thechapter{\roman{chapter}}
+
+%\mainmatter
+%\ichapter{Tensors}
+%\part{Exercises}
+
+%\input{Prod-Cont.tex}
+\section{Outer Products}
+
+\begin{frame}
+\begin{center}
+\begin{tikzpicture}
+    \foreach \x/\val in {0/1,1/2,2/3}
+    {\pic at (\x,0,0) {rwing={1/1/1/{\small $u_{\val}$}}};}
+    \pause
+    \foreach \y/\val in {0/1,1/2}
+    {\pic at (0,\y,0) {lwing={1/1/1/{\small $v_{\val}$}}};}
+    \pause    
+    \foreach \x/\valx in {0/1,1/2,2/3} {
+        \foreach \y/\valy in {0/1,1/2} {
+            \pic at (\x,\y,-0.25) {mwing={1/1/1/{\small $u_{\valy}v_{\valx}$}}};
+            \pause
+        };
+    }
+\end{tikzpicture}
+\end{center}
+\end{frame}
+
+\begin{frame}
+    \begin{tikzpicture}
+    \node at (-3,-2) {(a) An outer product.};
+    \node at (-3,0) {\begin{tikzpicture}
+    \foreach \x/\val in {0/1,1/2,2/3}
+    {\pic at (\x,0,0) {rwing={1/1/1/{\small $u_{\val}$}}};}
+    
+    \foreach \y/\val in {0/1,1/2}
+    {\pic at (0,\y,0) {lwing={1/1/1/{\small $v_{\val}$}}};}
+    
+    \foreach \x/\valx in {0/1,1/2,2/3} {
+        \foreach \y/\valy in {0/1,1/2} {
+            \pic at (\x,\y,-0.25) {mwing={1/1/1/{\small $u_{\valy}v_{\valx}$}}};
+        };
+    }
+    \end{tikzpicture}
+    };
+    
+    \node at (3,-2) {(b) An inner product.};
+\node at (3,0) {\begin{tikzpicture}
+\draw[dotted] (0,0,0) -- (0,0,4);
+\draw[dotted] (1,0,0) -- (1,0,4);
+\draw[dotted] (0,1,0) -- (0,1,4);
+\foreach \z/\valu/\valv in {0/1/1,1/2/2,4/d/d} {
+	\pic at (0,0,\z) {lwing={1/1/1/{\small $u_{\valu}$}}};
+	\pic at (0,0,\z) {rwing={1/1/1/{\small $v_{\valv}$}}};
+	\pic at (1.5,0,1.25*\z) {mwing={1/1/1/{\small $u_{\valu}v_{\valv}$}}};
+}
+\node at (2,0.5,4) {$+$};
+\draw[thick, dotted] (2,0.5,4) -- (2,0.5,2);
+\node at (2,0.5,2) {$+$};
+\node at (2,0.5,0.5) {$+$};
+\draw (3,0.5,0) -- (3.5,0.5,0.5);
+\draw (3,0.5,1) -- (3.5,0.5,0.5);
+\draw (3.5,0.5,0.5) -- (5,0.5,2);
+\draw (3,0.5,4) -- (5,0.5,2);
+\pic at (5,0,2) {mwing={1/1/1/{\tiny $\sum_i u_iv_i$}}};
+\end{tikzpicture}};
+
+\node at (0,-7) {(c) A matrix product.};
+\node at (0,-5) {\begin{tikzpicture}
+\draw[dotted] (0,0,0) -- (0,0,4);
+\draw[dotted] (3,0,0) -- (3,0,4);
+\draw[dotted] (0,2,0) -- (0,2,4);
+\foreach \z/\valz in {0/1,1/2,4/d} {
+	\foreach \x/\valx  in {0/1,1/2,2/3} {
+		\pic at (\x,0,\z) {rwing={1/1/1/{\tiny $a_{\valz}^{\valx}$}}};
+	}
+}
+\foreach \z/\valz in {0/1,1/2,4/3} {
+	\foreach \y/\valy  in {0/1,1/2} {
+		\pic at (0,\y,\z) {lwing={1/1/1/{\tiny $b_{\valy}^{\valz}$}}};
+	}
+}
+\foreach \z in {0,1,4} {
+	\foreach \x in {0,1,2} {
+		\foreach \y in {0,1} {
+			\pic at (3.25+\x,\y,\z) {mwing={1/1/1/}};
+		}
+	}
+}
+\draw (6,1,0) -- (6.5,1,0.5);
+\draw (5.75,1,1) -- (6.5,1,0.5);
+\draw (6.5,1,0.5) -- (9,1,2);
+\draw (6,1,4) -- (9,1,2);
+	\foreach \x in {0,1,2} {
+		\foreach \y in {0,1} {
+			\pic at (9.25+\x,\y,2) {mwing={1/1/1/{\tiny $\Sigma_k a_i^kb_k^j$}}};
+		}
+	}
+\end{tikzpicture}};
+\end{tikzpicture}
+\end{frame}
+
+
+%\bibliographystyle{amsalpha}
+%\bibliography{..\references}
+
+%\printindex
+
+\end{document}
