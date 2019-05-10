@@ -66,15 +66,15 @@ rwing/.style args={#1/#2/#3/#4}{code={
     }
     \foreach \n in {1,2,3} {
         \pause
-        \fill[color=white] (-1,-1) rectangle (4,1);
+        \fill[color=white] (-1,-1) rectangle (4,1.5);
         \foreach \x in {\n, ..., 3}
         {
             \pic at (\x,0,0) {mwing={1/1/1/{\small $u_{\x}$}}};
             %\pic at (\x,0,0) {rwing={1/1/1/{\small $v_{\x}$}}};
         }
-        \draw[->,thick] (0,0) -- (5,0);
+        \draw[->,thick] (\n,0) -- (3,0);
 
-        \pic at (\n,0,0) {mwing={1/1/1/{\tiny $\overset{\n}{\underset{i=1}{\Sigma}} u_{i}v_{i}$}}};
+        \pic at (\n,0,0) {mwing={1/1/1/{\tiny $\overset{\n}{\underset{i=1}{\Sigma}} u_{i}$}}};
         %
     }
     %\pic at (3,0,0) {mwing={1/1/1/{\small $\sum_i}u_{i}v_{i}$}}};
