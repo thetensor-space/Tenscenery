@@ -9,28 +9,29 @@ Add or edit whatevery you think would fit the world of imagining tensors, but ke
 
 # Gallary of General Tensors
 
-1-Tensor.png (and .gif)
+
 ![](images/1-Tensor.png)
+1-Tensor.png (and .gif)
 
-2-Tensor.png (and .gif)
 ![](images/2-Tensor.png)
+2-Tensor.png (and .gif)
 
-3-Tensor.png (and .gif)
 ![](images/3-Tensor.png)
+3-Tensor.png (and .gif)
 
 # Gallary of Tensor/Vector/Matrix/Outer Product Animations
 
-Tensor-Product-Def-2D.gif
 ![](images/Tensor-Product-Def-2D.gif)
+Tensor-Product-Def-2D.gif
 
-Tensor-Product-Def-3D.gif
 ![](images/Tensor-Product-Def-3D.gif)
+Tensor-Product-Def-3D.gif
 
-Tensor-Product-Def-3D-BW.gif
-![](images/Tensor-Product-Def-3D-BW.gif)
+![](images/Tensor-Product-Def-2D-BW.gif)
+Tensor-Product-Def-2D-BW.gif
 
-Tensor-Product-Def-2-1-D.gif
 ![](images/Tensor-Product-Def-2-1-D.gif)
+Tensor-Product-Def-2-1-D.gif
 
 
 
