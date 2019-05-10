@@ -50,5 +50,8 @@ Contract-2D-H-Weighted.gif
 ![](images/Contract-2D-V.gif)
 Contract-2D-V.gif
 
+![](images/Contract-2-1-D.gif)
+Contract-2-1-D.gif
+
 # Gallery of Tensor Operators
 
