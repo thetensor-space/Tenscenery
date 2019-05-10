@@ -38,6 +38,8 @@ Tensor-Product-Def-2-1-D.gif
 ![](images/Contract-1D.gif)
 Contract-1D.gif
 
-![](images/Contract-2D.gif)
-Contract-2D.gif
+![](images/Contract-2D-H.gif)
+Contract-2D-H.gif
 
+![](images/Contract-2D-V.gif)
+Contract-2D-V.gif
