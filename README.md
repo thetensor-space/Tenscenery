@@ -7,7 +7,7 @@ Add or edit whatevery you think would fit the world of imagining tensors, but ke
 
 ---
 
-# Gallary of General Tensors
+# Gallery of General Tensors
 
 
 ![](images/1-Tensor.gif)
@@ -19,7 +19,7 @@ Add or edit whatevery you think would fit the world of imagining tensors, but ke
 ![](images/3-Tensor.gif)
 3-Tensor.gif (and .png)
 
-# Gallary of Tensor/Vector/Matrix/Outer Product Animations
+# Gallery of Tensor/Vector/Matrix/Outer Product Animations
 
 ![](images/Tensor-Product-Def-2D.gif)
 Tensor-Product-Def-2D.gif
@@ -33,13 +33,22 @@ Tensor-Product-Def-2D-BW.gif
 ![](images/Tensor-Product-Def-2-1-D.gif)
 Tensor-Product-Def-2-1-D.gif
 
-# Gallary of Tensor Contractions
+# Gallery of Tensor Contractions
 
 ![](images/Contract-1D.gif)
 Contract-1D.gif
 
+![](images/Contract-1D-Weighted.gif)
+Contract-1D-Weighted.gif
+
 ![](images/Contract-2D-H.gif)
 Contract-2D-H.gif
 
+![](images/Contract-2D-H-Weighted.gif)
+Contract-2D-H-Weighted.gif
+
 ![](images/Contract-2D-V.gif)
 Contract-2D-V.gif
+
+# Gallery of Tensor Operators
+
