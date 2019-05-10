@@ -61,6 +61,7 @@ rwing/.style args={#1/#2/#3/#4}{code={
 \begin{frame}
 %\begin{center}
 \begin{tikzpicture}
+    \fill[color=white] (-1,-1) rectangle (4,3);
     \foreach \x/\val in {0/1,1/2,2/3,3/4} 
         {\pic at (\x,0,3) {rwing={1/1/1/{\small $u_{\val}$}}};}
     %\pause
