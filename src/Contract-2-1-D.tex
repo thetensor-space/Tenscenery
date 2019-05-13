@@ -105,6 +105,20 @@ rwing/.style args={#1/#2/#3/#4}{code={
             };
         }
     }
+    \pause
+    \foreach \y/\valy in {0/1,1/2,2/3} {
+        \foreach \x in {1,...,4} {
+            \foreach \z/\valz in {0/1,1/2} { 
+                \pic at (\x,\y,\z) {cube={1/1/1/{\tiny $u^{\valz}_{\valy\x}$}}};
+                
+            };
+        }
+    }
+    \foreach \x in {1,...,4}{
+        \foreach \z/\valz in {0/1,1/2} 
+            {\pic at (\x,3,\z) {rwing={1/1/1/{\small $w_{\valz\x}$}}};}
+    }
+    \draw[thick,->] (5.5,3) -- (0.5,3);
 \end{tikzpicture}
 %\end{center}
 \end{frame}
