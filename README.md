@@ -63,3 +63,12 @@ Act-1.png (and .gif)
 
 ![](images/Act-2.png)
 Act-2.png (and .gif)
+
+![](images/Act-20.png)
+Act-20.png (and .gif)
+
+![](images/Act-21.png)
+Act-21.png (and .gif)
+
+![](images/Act-10.png)
+Act-10.png (and .gif)
