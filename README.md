@@ -55,3 +55,11 @@ Contract-2-1-D.gif
 
 # Gallery of Tensor Operators
 
+![](images/Act-0.png)
+Act-0.png (and .gif)
+
+![](images/Act-1.png)
+Act-1.png (and .gif)
+
+![](images/Act-2.png)
+Act-2.png (and .gif)
