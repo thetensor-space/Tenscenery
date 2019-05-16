@@ -1,0 +1,147 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  To create image run: (for Windows use imgconvert)
+%%
+%%  convert -verbose -delay 50 -loop 0 -density 300 -resize 640x480 <name>.pdf <name>.gif
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[beamer,tikz,preview]{standalone}
+%\documentclass{beamer}
+
+\setbeamertemplate{navigation symbols}{}
+\usepackage{tikz}
+\usepackage{color}
+
+\tikzset{pics/.cd,
+linecube/.style args={#1/#2/#3}{code={
+\coordinate (O) at (0,0,0);
+\coordinate (A) at (0,#2,0);
+\coordinate (B) at (0,#2,#3);
+\coordinate (C) at (0,0,#3);
+\coordinate (D) at (#1,0,0);
+\coordinate (E) at (#1,#2,0);
+\coordinate (F) at (#1,#2,#3);
+\coordinate (G) at (#1,0,#3);
+\draw[black,dashed] (O) -- (C) -- (G) -- (D) -- cycle;
+\draw[black,dashed] (O) -- (A) -- (E) -- (D) -- cycle;
+\draw[black,dashed] (O) -- (A) -- (B) -- (C) -- cycle;
+\draw[black,dashed] (D) -- (E) -- (F) -- (G) -- cycle;
+\draw[black,dashed] (C) -- (B) -- (F) -- (G) -- cycle;
+\draw[black,dashed] (A) -- (B) -- (F) -- (E) -- cycle;
+}}}
+
+\tikzset{pics/.cd,
+ccube/.style args={#1/#2/#3/#4}{code={
+\coordinate (O) at (0,0,0);
+\coordinate (A) at (0,#2,0);
+\coordinate (B) at (0,#2,#3);
+\coordinate (C) at (0,0,#3);
+\coordinate (D) at (#1,0,0);
+\coordinate (E) at (#1,#2,0);
+\coordinate (F) at (#1,#2,#3);
+\coordinate (G) at (#1,0,#3);
+\draw[black,fill=#4!80] (O) -- (C) -- (G) -- (D) -- cycle;
+\draw[black,fill=#4!30] (O) -- (A) -- (E) -- (D) -- cycle;
+\draw[black,fill=#4!10] (O) -- (A) -- (B) -- (C) -- cycle;
+\draw[black,fill=#4!20,opacity=0.8] (D) -- (E) -- (F) -- (G) -- cycle;
+\draw[black,fill=#4!20,opacity=0.6] (C) -- (B) -- (F) -- (G) -- cycle;
+\draw[black,fill=#4!20,opacity=0.8] (A) -- (B) -- (F) -- (E) -- cycle;
+}}}
+
+\tikzset{pics/.cd,
+lwing/.style args={#1/#2/#3/#4}{code={
+\coordinate (O) at ( 0, 0, 0);
+\coordinate (A) at ( 0, 0,#3);
+\coordinate (B) at ( 0,#2,#3);
+\coordinate (C) at ( 0,#2, 0);
+\draw[black,fill=red!20] (O) -- (A) -- (B) -- (C) -- cycle;
+\node at (0,0.5*#2,0.5*#3) {#4};
+}}}
+
+\tikzset{pics/.cd,
+mwing/.style args={#1/#2/#3/#4}{code={
+\coordinate (O) at ( 0, 0, 0);
+\coordinate (A) at (#1, 0, 0);
+\coordinate (B) at (#1,#2, 0);
+\coordinate (C) at ( 0,#2, 0);
+\draw[black,fill=green!20] (O) -- (A) -- (B) -- (C) -- cycle;
+\node at (0.5*#1,0.5*#2,0) {#4};
+}}}
+
+\tikzset{pics/.cd,
+rwing/.style args={#1/#2/#3/#4}{code={
+\coordinate (O) at ( 0, 0, 0);
+\coordinate (A) at (#1, 0, 0);
+\coordinate (B) at (#1, 0,#3);
+\coordinate (C) at ( 0, 0,#3);
+\draw[black,fill=blue!20] (O) -- (A) -- (B) -- (C) -- cycle;
+\node at (0.5*#1,0,0.5*#3) {#4};
+}}}
+
+\tikzset{pics/.cd,
+    abacus2/.style args={#1/#2}{
+        code={
+            \draw[red] (0,0) -- (1.5,0);
+            \draw[red] (0,0.25) -- (1.5,0.25);
+            \foreach \u in {1,...,#1} {
+                \filldraw[red] (0.1*\u,0) circle (1pt);
+            }
+            \foreach \u in {1,...,#2} {
+                \filldraw[red] (0.1*\u,0.25) circle (1pt);
+            }
+        }
+    } 
+}
+
+
+\tikzset{pics/.cd,
+    abacus3/.style args={#1/#2/#3/#4}{
+        code={
+            \draw[#4] (0,0) -- (1.5,0);
+            \draw[#4] (0,0.25) -- (1.5,0.25);
+            \draw[#4] (0,0.5) -- (1.5,0.5);
+            \foreach \u in {1,...,#1} {
+                \filldraw[#4] (0.1*\u,0) circle (1pt);
+            }
+            \foreach \u in {1,...,#2} {
+                \filldraw[#4] (0.1*\u,0.25) circle (1pt);
+            }
+            \foreach \u in {1,...,#3} {
+                \filldraw[#4] (0.1*\u,0.5) circle (1pt);
+            }
+        }
+    } 
+}
+\begin{document}
+\begin{frame}
+\begin{tikzpicture}
+   
+    \foreach \x in {1,...,3} {
+        \foreach \y in {1,...,4} {
+            \foreach \z in {1,...,2} {
+                
+
+                \fill[color=white] (0,-0.25) rectangle (26*0.25,2);       
+                     \foreach \t in {1,...,24} {
+                    \draw[black,fill=gray] 
+                        (0.25*\t,0) rectangle (0.25*\t+0.25,0.25);
+                }
+                \pic at (0.25,0.5,-0.5) {
+                    linecube={0.25*3/0.25*4/0.25*2}
+                };
+
+                \pic at (3,1) {abacus3={\x/\y/\z/red}};
+                \draw[black,fill=red] 
+                    (0.25*2*4*\x+0.25*2*\y+0.25*\z-2.5,0) rectangle 
+                        (0.25*2*4*\x + 0.25*2*\y+0.25*\z-2.25,0.25);
+                \pic at (0.25*\x,0.25*\y+0.25,-0.25*\z) {
+                    ccube={0.25/0.25/0.25/red}
+                };
+                \pause
+            }
+        }
+    }
+\end{tikzpicture}
+
+\end{frame}
+
+\end{document}

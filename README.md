@@ -5,74 +5,53 @@ Images of tensors, such as ...
 
 Add or edit whatevery you think would fit the world of imagining tensors, but keep this public and shared under Creative-Commons 4.0 "CC-BY."
 
+# Table of Contents
+1. [General](#gallery-of-tensors)
+2. [Products](#gallery-of-products)
+3. [Contractions](#gallery-of-contractions)
+4. [Actions] (#gallery-of-actions)
+5. [Encoding] (#gallery-of-encodings)
+6. [Shuffles] (#gallary-of-shuffles)
+
+## Example
 ---
 
-# Gallery of General Tensors
+# Gallery of Tensors
 
 
-![](images/1-Tensor.gif)
-1-Tensor.gif (and static in .png)
+1. ![1-Tensor.gif (and static in .png)](images/1-Tensor.gif)
+2. ![2-Tensor.gif (and static in .png)](images/2-Tensor.gif)
+3. ![3-Tensor.gif (and .png)](images/3-Tensor.gif)
 
-![](images/2-Tensor.gif)
-2-Tensor.gif (and static in .png)
+# Gallery of Products
 
-![](images/3-Tensor.gif)
-3-Tensor.gif (and .png)
+ 1. ![Tensor-Product-Def-2D.gif](images/Tensor-Product-Def-2D.gif)
+ 2. ![Tensor-Product-Def-3D.gif](images/Tensor-Product-Def-3D.gif)
+ 3. ![Tensor-Product-Def-2D-BW.gif](images/Tensor-Product-Def-2D-BW.gif)
+ 4. ![Tensor-Product-Def-2-1-D.gif](images/Tensor-Product-Def-2-1-D.gif)
 
-# Gallery of Tensor/Vector/Matrix/Outer Product Animations
+# Gallery of Contractions
 
-![](images/Tensor-Product-Def-2D.gif)
-Tensor-Product-Def-2D.gif
+ 1. ![Contract-1D.gif](images/Contract-1D.gif)
+ 2. ![Contract-1D-Weighted.gif](images/Contract-1D-Weighted.gif)
+ 3. ![Contract-2D-H.gif](images/Contract-2D-H.gif)
+ 4. ![Contract-2D-H-Weighted.gif](images/Contract-2D-H-Weighted.gif)
+ 5. ![Contract-2D-V.gif](images/Contract-2D-V.gif)
+ 6. ![Contract-2-1-D.gif](images/Contract-2-1-D.gif)
 
-![](images/Tensor-Product-Def-3D.gif)
-Tensor-Product-Def-3D.gif
+# Gallery of Actions
 
-![](images/Tensor-Product-Def-2D-BW.gif)
-Tensor-Product-Def-2D-BW.gif
+ 1. ![Act-0.png (and .gif)](images/Act-0.png)
+ 2. ![Act-1.png (and .gif)](images/Act-1.png)
+ 3. ![Act-2.png (and .gif)](images/Act-2.png)
+ 4. ![Act-2-live.gif](images/Act-2-live.gif)
+ 5. ![Act-20.png (and .gif)](images/Act-20.png)
+ 6. ![Act-21.png (and .gif)](images/Act-21.png)
+ 7. ![Act-10.png (and .gif)](images/Act-10.png)
 
-![](images/Tensor-Product-Def-2-1-D.gif)
-Tensor-Product-Def-2-1-D.gif
+# Gallery of Encodings
 
-# Gallery of Tensor Contractions
+ 1. ![Abacus-Tensor-2D.gif](images/Abacus-Tensor-2D.gif)
+ 1. ![Abacus-Tensor-2D.gif](images/Abacus-Tensor-3D.gif)
 
-![](images/Contract-1D.gif)
-Contract-1D.gif
-
-![](images/Contract-1D-Weighted.gif)
-Contract-1D-Weighted.gif
-
-![](images/Contract-2D-H.gif)
-Contract-2D-H.gif
-
-![](images/Contract-2D-H-Weighted.gif)
-Contract-2D-H-Weighted.gif
-
-![](images/Contract-2D-V.gif)
-Contract-2D-V.gif
-
-![](images/Contract-2-1-D.gif)
-Contract-2-1-D.gif
-
-# Gallery of Tensor Operators
-
-![](images/Act-0.png)
-Act-0.png (and .gif)
-
-![](images/Act-1.png)
-Act-1.png (and .gif)
-
-![](images/Act-2.png)
-Act-2.png (and .gif)
-
-![](images/Act-2-live.gif)
-Act-2-live.gif
-
-
-![](images/Act-20.png)
-Act-20.png (and .gif)
-
-![](images/Act-21.png)
-Act-21.png (and .gif)
-
-![](images/Act-10.png)
-Act-10.png (and .gif)
+# Gallery of Shuffles
