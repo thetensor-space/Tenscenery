@@ -1,0 +1,6 @@
+*
+!.gitignore
+!*.pdf
+!*.gnu
+!*.tex
+!ExpA*
