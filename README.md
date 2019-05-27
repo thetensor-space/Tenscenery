@@ -82,3 +82,6 @@ Add or edit whatevery you think would fit the world of imagining tensors, but ke
 1. ![3-tensor-stack-2.png](images/stacks/3-tensor-stack-2.png)
 
 # Gallery of Slices
+
+# Gallery of Foliations
+
