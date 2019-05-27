@@ -49,13 +49,13 @@ Add or edit whatevery you think would fit the world of imagining tensors, but ke
 
 # Gallery of Actions
 
- 1. ![Act-0.png (and .gif)](images/Act-0.png)
- 2. ![Act-1.png (and .gif)](images/Act-1.png)
- 3. ![Act-2.png (and .gif)](images/Act-2.png)
- 4. ![Act-2-live.gif](images/Act-2-live.gif)
- 5. ![Act-20.png (and .gif)](images/Act-20.png)
- 6. ![Act-21.png (and .gif)](images/Act-21.png)
- 7. ![Act-10.png (and .gif)](images/Act-10.png)
+ 1. ![Act-0.png (and .gif)](images/actions/Act-0.png)
+ 2. ![Act-1.png (and .gif)](images/actions/Act-1.png)
+ 3. ![Act-2.png (and .gif)](images/actions/Act-2.png)
+ 4. ![Act-2-live.gif](images/actions/Act-2-live.gif)
+ 5. ![Act-20.png (and .gif)](images/actions/Act-20.png)
+ 6. ![Act-21.png (and .gif)](images/actions/Act-21.png)
+ 7. ![Act-10.png (and .gif)](images/actions/Act-10.png)
 
 --- 
 # Gallery of Encodings
