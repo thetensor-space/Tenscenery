@@ -21,9 +21,9 @@ Add or edit whatevery you think would fit the world of imagining tensors, but ke
 
 
 1. ![1-Tensor.png](images/tensors/1-Tensor.png)
-2. ![2-Tensor.png](images/tensors/2-Tensor.gif)
-3. ![3-Tensor.png)](images/tensors/3-Tensor.gif)
-4. ![5-Tensor.png)](images/tensors/5-Tensor.gif)
+2. ![2-Tensor.png](images/tensors/2-Tensor.png)
+3. ![3-Tensor.png)](images/tensors/3-Tensor.png)
+4. ![5-Tensor.png)](images/tensors/5-Tensor-0.png)
 
 --- 
 
