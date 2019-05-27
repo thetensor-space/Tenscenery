@@ -14,6 +14,8 @@ Add or edit whatevery you think would fit the world of imagining tensors, but ke
 6. [Shuffles](#gallery-of-shuffles)
 7. [Stacks](#gallery-of-stacks)
 8. [Slices](#gallery-of-slices)
+9. [Foliations](#gallery-of-foliations)
+10. [Genus-2](#gallery-of-genus-2)
 
 ---
 
@@ -88,4 +90,4 @@ Add or edit whatevery you think would fit the world of imagining tensors, but ke
 # Gallery of Genus-2
 
 1. ![Orthogonal-bases-2D.jpg](images/genus-2/Orthogonal-bases-2D.jpg)
-1. ![Hyperbolic-bases-2D.jpg](images/genus-2/Hyperbolic-bases-2D.mp4)
+1. Hyperbolic-bases-2D.mp4 (wont display on github (get at images/genus-2/Hyperbolic-bases-2D.mp4)
