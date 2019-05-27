@@ -9,11 +9,12 @@ Add or edit whatevery you think would fit the world of imagining tensors, but ke
 1. [General](#gallery-of-tensors)
 2. [Products](#gallery-of-products)
 3. [Contractions](#gallery-of-contractions)
-4. [Actions] (#gallery-of-actions)
-5. [Encoding] (#gallery-of-encodings)
-6. [Shuffles] (#gallery-of-shuffles)
+4. [Actions](#gallery-of-actions)
+5. [Encoding](#gallery-of-encodings)
+6. [Shuffles](#gallery-of-shuffles)
+7. [Stacks](#gallery-of-stacks)
+8. [Slices](#gallery-of-slices)
 
-## Example
 ---
 
 # Gallery of Tensors
@@ -23,12 +24,16 @@ Add or edit whatevery you think would fit the world of imagining tensors, but ke
 2. ![2-Tensor.gif (and static in .png)](images/2-Tensor.gif)
 3. ![3-Tensor.gif (and .png)](images/3-Tensor.gif)
 
+--- 
+
 # Gallery of Products
 
  1. ![Tensor-Product-Def-2D.gif](images/Tensor-Product-Def-2D.gif)
  2. ![Tensor-Product-Def-3D.gif](images/Tensor-Product-Def-3D.gif)
  3. ![Tensor-Product-Def-2D-BW.gif](images/Tensor-Product-Def-2D-BW.gif)
  4. ![Tensor-Product-Def-2-1-D.gif](images/Tensor-Product-Def-2-1-D.gif)
+
+---
 
 # Gallery of Contractions
 
@@ -38,6 +43,8 @@ Add or edit whatevery you think would fit the world of imagining tensors, but ke
  4. ![Contract-2D-H-Weighted.gif](images/Contract-2D-H-Weighted.gif)
  5. ![Contract-2D-V.gif](images/Contract-2D-V.gif)
  6. ![Contract-2-1-D.gif](images/Contract-2-1-D.gif)
+
+---
 
 # Gallery of Actions
 
@@ -49,10 +56,13 @@ Add or edit whatevery you think would fit the world of imagining tensors, but ke
  6. ![Act-21.png (and .gif)](images/Act-21.png)
  7. ![Act-10.png (and .gif)](images/Act-10.png)
 
+--- 
 # Gallery of Encodings
 
  1. ![Abacus-Tensor-2D.gif](images/Abacus-Tensor-2D.gif)
  1. ![Abacus-Tensor-2D.gif](images/Abacus-Tensor-3D.gif)
+
+--- 
 
 # Gallery of Shuffles
 
@@ -62,3 +72,12 @@ Add or edit whatevery you think would fit the world of imagining tensors, but ke
 1. ![3-tensor-shuffle-13.png](images/3-tensor-shuffle-13.png)
 1. ![3-tensor-shuffle-23.png](images/3-tensor-shuffle-23.png)
 
+---
+
+# Gallery of Stacks
+
+1. ![3-tensor-stack-0.png](images/stacks/3-tensor-stack-0.png)
+1. ![3-tensor-stack-1.png](images/stacks/3-tensor-stack-1.png)
+1. ![3-tensor-stack-2.png](images/stacks/3-tensor-stack-2.png)
+
+# Gallery of Slices
