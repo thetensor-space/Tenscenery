@@ -85,3 +85,7 @@ Add or edit whatevery you think would fit the world of imagining tensors, but ke
 
 # Gallery of Foliations
 
+# Gallery of Genus-2
+
+1. ![Orthogonal-bases-2D.jpg](images/genus-2/Orthogonal-bases-2D.jpg)
+1. ![Hyperbolic-bases-2D.jpg](images/genus-2/Hyperbolic-bases-2D.mp4)
