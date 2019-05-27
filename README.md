@@ -20,9 +20,9 @@ Add or edit whatevery you think would fit the world of imagining tensors, but ke
 # Gallery of Tensors
 
 
-1. ![1-Tensor.gif (and static in .png)](images/1-Tensor.gif)
-2. ![2-Tensor.gif (and static in .png)](images/2-Tensor.gif)
-3. ![3-Tensor.gif (and .png)](images/3-Tensor.gif)
+1. ![1-Tensor.gif (and static in .png)](images/tensors/1-Tensor.gif)
+2. ![2-Tensor.gif (and static in .png)](images/tensors/2-Tensor.gif)
+3. ![3-Tensor.gif (and .png)](images/tensors/3-Tensor.gif)
 
 --- 
 
