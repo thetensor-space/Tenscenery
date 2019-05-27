@@ -11,7 +11,7 @@ Add or edit whatevery you think would fit the world of imagining tensors, but ke
 3. [Contractions](#gallery-of-contractions)
 4. [Actions] (#gallery-of-actions)
 5. [Encoding] (#gallery-of-encodings)
-6. [Shuffles] (#gallary-of-shuffles)
+6. [Shuffles] (#gallery-of-shuffles)
 
 ## Example
 ---
@@ -55,3 +55,10 @@ Add or edit whatevery you think would fit the world of imagining tensors, but ke
  1. ![Abacus-Tensor-2D.gif](images/Abacus-Tensor-3D.gif)
 
 # Gallery of Shuffles
+
+1. ![3-tensor-shuffle-321.png](images/3-tensor-shuffle-321.png)
+1. ![3-tensor-shuffle-123.png](images/3-tensor-shuffle-123.png)
+1. ![3-tensor-shuffle-12.png](images/3-tensor-shuffle-12.png)
+1. ![3-tensor-shuffle-13.png](images/3-tensor-shuffle-13.png)
+1. ![3-tensor-shuffle-23.png](images/3-tensor-shuffle-23.png)
+
