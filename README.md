@@ -20,10 +20,10 @@ Add or edit whatevery you think would fit the world of imagining tensors, but ke
 # Gallery of Tensors
 
 
-1. ![1-Tensor.png](images/tensors/1-Tensor.png)
-2. ![2-Tensor.png](images/tensors/2-Tensor.png)
-3. ![3-Tensor.png)](images/tensors/3-Tensor.png)
-4. ![5-Tensor.png)](images/tensors/5-Tensor-0.png)
+1. ![1-Tensor.png](images/tensors/1-tensor.png)
+2. ![2-Tensor.png](images/tensors/2-tensor.png)
+3. ![3-Tensor.png)](images/tensors/3-tensor.png)
+4. ![5-Tensor.png)](images/tensors/5-tensor-0.png)
 
 --- 
 
