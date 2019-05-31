@@ -1,0 +1,101 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  To create image run: (for Windows use imgconvert)
+%%
+%%  convert -verbose -delay 50 -loop 0 -density 300 -resize 640x480 <name>.pdf <name>.gif
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[beamer,tikz,preview]{standalone}
+%\documentclass{beamer}
+
+\setbeamertemplate{navigation symbols}{}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{color}
+
+\tikzset{pics/.cd,
+cube/.style args={#1/#2/#3/#4}{code={
+\coordinate (O) at (0,0,0);
+\coordinate (A) at (0,#2,0);
+\coordinate (B) at (0,#2,#3);
+\coordinate (C) at (0,0,#3);
+\coordinate (D) at (#1,0,0);
+\coordinate (E) at (#1,#2,0);
+\coordinate (F) at (#1,#2,#3);
+\coordinate (G) at (#1,0,#3);
+\draw[black,fill=black!80] (O) -- (C) -- (G) -- (D) -- cycle;
+\draw[black,fill=black!30] (O) -- (A) -- (E) -- (D) -- cycle;
+\draw[black,fill=black!10] (O) -- (A) -- (B) -- (C) -- cycle;
+\draw[black,fill=black!20,opacity=0.8] (D) -- (E) -- (F) -- (G) -- cycle;
+\draw[black,fill=black!20,opacity=0.6] (C) -- (B) -- (F) -- (G) -- cycle;
+\draw[black,fill=black!20,opacity=0.8] (A) -- (B) -- (F) -- (E) -- cycle;
+\node at (0.5*#1,0.5*#2,0.5*#3) {#4};
+}}}
+\tikzset{pics/.cd,
+lwing/.style args={#1/#2/#3/#4}{code={
+\coordinate (O) at ( 0, 0, 0);
+\coordinate (A) at ( 0, 0,#3);
+\coordinate (B) at ( 0,#2,#3);
+\coordinate (C) at ( 0,#2, 0);
+\draw[black,fill=red!20] (O) -- (A) -- (B) -- (C) -- cycle;
+\node at (0,0.5*#2,0.5*#3) {#4};
+}}}
+\tikzset{pics/.cd,
+mwing/.style args={#1/#2/#3/#4}{code={
+\coordinate (O) at ( 0, 0, 0);
+\coordinate (A) at (#1, 0, 0);
+\coordinate (B) at (#1,#2, 0);
+\coordinate (C) at ( 0,#2, 0);
+\draw[black,fill=green!20] (O) -- (A) -- (B) -- (C) -- cycle;
+\node at (0.5*#1,0.5*#2,0) {#4};
+}}}
+\tikzset{pics/.cd,
+rwing/.style args={#1/#2/#3/#4}{code={
+\coordinate (O) at ( 0, 0, 0);
+\coordinate (A) at (#1, 0, 0);
+\coordinate (B) at (#1, 0,#3);
+\coordinate (C) at ( 0, 0,#3);
+\draw[black,fill=blue!20] (O) -- (A) -- (B) -- (C) -- cycle;
+\node at (0.5*#1,0,0.5*#3) {#4};
+}}}
+
+\begin{document}
+\begin{frame}[fragile]
+   \begin{tikzpicture}
+            \node (T) at (0,0) {
+                $\begin{bmatrix} 
+                    1 & 0 & 3 \\ 
+                    4 & 5 & 6 
+                \end{bmatrix}$};
+            \node (TY) at (3,0) {
+                $\begin{bmatrix} 
+                0 & 0 & 0 \\ 
+                0 & 5 & 0 
+                \end{bmatrix}$};
+
+            \node (XT) at (0,-2) {
+                $\begin{bmatrix}
+                1 & 0 & 3 \\ 
+                0 & 0 & 0
+                \end{bmatrix}$};
+            \node (XTY) at (3,-2) {
+                $\begin{bmatrix} 
+                0 & 0 & 0 \\ 
+                0 & 0 & 0 
+                \end{bmatrix}$};
+            
+            \draw[thick,->] (T) -- (TY) node[midway,above] {$Y$};
+            \draw[thick,->] (TY) edge[out=-45, in=45, looseness=4] (TY);
+
+            \draw[thick,->] (T) -- (XT) node[midway,left] {$X$};
+            \draw[thick,->] (XT) edge[out=-45, in=-135, looseness=4] (XT);
+
+
+            \draw[thick,->] (XT) -- (XTY) node[midway,above] {$Y$};
+            \draw[thick,->] (TY) -- (XTY) node[midway,left] {$X$};
+
+            \draw[thick,->] (XTY) edge[out=-45, in=45, looseness=4] (XTY);
+            \draw[thick,->] (XTY) edge[out=-45, in=-135, looseness=4] (XTY);
+        \end{tikzpicture}
+\end{frame}
+
+\end{document}

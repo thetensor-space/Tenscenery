@@ -1,0 +1,89 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  To create image run: (for Windows use imgconvert)
+%%
+%%  convert -verbose -delay 50 -loop 0 -density 300 -resize 640x480 <name>.pdf <name>.gif
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[beamer,tikz,preview]{standalone}
+%\documentclass{beamer}
+
+\setbeamertemplate{navigation symbols}{}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{color}
+\newcommand{\vav}{\ell}
+\tikzset{pics/.cd,
+cube/.style args={#1/#2/#3/#4}{code={
+\coordinate (O) at (0,0,0);
+\coordinate (A) at (0,#2,0);
+\coordinate (B) at (0,#2,#3);
+\coordinate (C) at (0,0,#3);
+\coordinate (D) at (#1,0,0);
+\coordinate (E) at (#1,#2,0);
+\coordinate (F) at (#1,#2,#3);
+\coordinate (G) at (#1,0,#3);
+\draw[black,fill=black!80] (O) -- (C) -- (G) -- (D) -- cycle;
+\draw[black,fill=black!30] (O) -- (A) -- (E) -- (D) -- cycle;
+\draw[black,fill=black!10] (O) -- (A) -- (B) -- (C) -- cycle;
+\draw[black,fill=black!20,opacity=0.8] (D) -- (E) -- (F) -- (G) -- cycle;
+\draw[black,fill=black!20,opacity=0.6] (C) -- (B) -- (F) -- (G) -- cycle;
+\draw[black,fill=black!20,opacity=0.8] (A) -- (B) -- (F) -- (E) -- cycle;
+\node at (0.5*#1,0.5*#2,0.5*#3) {#4};
+}}}
+\tikzset{pics/.cd,
+lwing/.style args={#1/#2/#3/#4}{code={
+\coordinate (O) at ( 0, 0, 0);
+\coordinate (A) at ( 0, 0,#3);
+\coordinate (B) at ( 0,#2,#3);
+\coordinate (C) at ( 0,#2, 0);
+\draw[black,fill=red!20] (O) -- (A) -- (B) -- (C) -- cycle;
+\node at (0,0.5*#2,0.5*#3) {#4};
+}}}
+\tikzset{pics/.cd,
+mwing/.style args={#1/#2/#3/#4}{code={
+\coordinate (O) at ( 0, 0, 0);
+\coordinate (A) at (#1, 0, 0);
+\coordinate (B) at (#1,#2, 0);
+\coordinate (C) at ( 0,#2, 0);
+\draw[black,fill=green!20] (O) -- (A) -- (B) -- (C) -- cycle;
+\node at (0.5*#1,0.5*#2,0) {#4};
+}}}
+\tikzset{pics/.cd,
+rwing/.style args={#1/#2/#3/#4}{code={
+\coordinate (O) at ( 0, 0, 0);
+\coordinate (A) at (#1, 0, 0);
+\coordinate (B) at (#1, 0,#3);
+\coordinate (C) at ( 0, 0,#3);
+\draw[black,fill=blue!20] (O) -- (A) -- (B) -- (C) -- cycle;
+\node at (0.5*#1,0,0.5*#3) {#4};
+}}}
+
+\begin{document}
+\begin{frame}[fragile]
+    \begin{tikzcd}
+        K[x_0] \times \cdots\times K[x_{\vav}]
+            \arrow[dd,xshift=-6ex,"\rho_0"]
+            \arrow[dd,xshift=6ex, "\rho_{\vav}"]
+            \arrow[r,tail]
+            \only<2->{\arrow[r,tail]}
+                & K[x_0]\otimes\cdots\otimes K[x_{\vav}]
+                    \only<1>{\arrow[dd,"\rho_0\otimes\cdots\otimes\rho_{\vav}"]}
+                    \only<2->{\arrow[d,"\cong"]}\\
+            & 
+              \only<2->{
+                K[x_0,\ldots,x_{\vav}]
+                \arrow[d,"\rho"]
+              }
+              \\
+        \mathrm{End}(V_0)\times\cdots\times \mathrm{End}(V_{\vav})
+            \arrow[r,tail] 
+            & \mathrm{End}(V_0)\otimes\cdots\otimes\mathrm{End}(V_{\vav})
+                \only<2->{\arrow[d]}\\
+        & 
+              \only<2>{
+                \mathrm{End}(V_0\oslash\cdots\oslash V_{\vav})
+              }
+    \end{tikzcd}
+\end{frame}
+
+\end{document}
