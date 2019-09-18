@@ -1,0 +1,321 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  To create image run: (for Windows use imgconvert)
+%%
+%%  convert -verbose -delay 50 -loop 0 -density 300 -resize 640x480 <name>.pdf <name>.gif
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[beamer,tikz,preview]{standalone}
+%\documentclass{beamer}
+
+\setbeamertemplate{navigation symbols}{}
+
+% \usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{caption,amsthm,stmaryrd}
+%\usepackage{animate}
+%\usepackage{longtable}
+\usepackage{wasysym} % for \Leftcirle \Rightcircle
+\usepackage{multicol}
+
+%\usepackage[version=0.96]{pgf}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+%\usetikzlibrary{matrix}
+%\usetikzlibrary{arrows,chains,matrix,positioning,scopes}
+\usetikzlibrary{matrix,shapes,arrows,automata,backgrounds,knots,petri}
+%\usetikzlibrary{graphs,math}
+%\usetikzlibrary{graphs.standard}
+%\usetikzlibrary{graphs.standard}
+%\usepackage{smartdiagram}
+
+%\usepackage{multimedia}
+%\usepackage{media9}
+
+\newcommand{\lversor}{\reflectbox{\ensuremath{\oslash}}}%\obackslash}
+\newcommand{\rversor}{\oslash}
+\newcommand{\M}{\mathbb{M}}
+
+\newcommand{\ssection}[1]{
+\section{#1}
+\begin{frame}[plain]
+  \begin{beamercolorbox}[leftskip=.5\paperwidth,wd=\paperwidth,sep=.3cm]{talktitle}
+    {\Large #1}
+  \end{beamercolorbox}
+  \addtocounter{framenumber}{-1}
+\end{frame}
+}
+
+
+
+\usepackage[square,numbers]{natbib}
+\renewcommand{\newblock}{}
+
+\mode<presentation>
+% \setbeameroption{hide notes}
+{
+  \usetheme{Madrid}
+% CSU COLORS
+  \definecolor{csugreen}{HTML}{1C674F}
+  \definecolor{csugold}{HTML}{B78E00}
+    \definecolor{csured}{HTML}{E02F11}
+
+  \definecolor{greenmain}{HTML}{00AF64}
+  \definecolor{brick}{rgb}{.85,.1,.2}
+  \colorlet{greenstruct}{greenmain!87.5!black}
+  \usecolortheme[named=csugreen]{structure}
+  % Change this in order to make the presentation look
+  % different. Works just like a powerpoint template. 
+  % Have your RA mess around until it looks nice.
+  \setbeamercovered{dynamic}
+
+  \useinnertheme{rectangles}
+  
+ %Other colors.
+
+  \definecolor{bluemain}{HTML}{0B61A4}
+  \definecolor{orangemain}{HTML}{AA6600}
+  \definecolor{redmain}{HTML}{E02F11}
+  \definecolor{redlight}{HTML}{FF9B73}
+  \definecolor{orangelight}{HTML}{FFC373}
+  \definecolor{cmugray}{RGB}{104,104,104}
+  \definecolor{cmulightgray}{RGB}{238,238,238}
+  \setbeamercolor{block body}{bg=cmulightgray}
+  \setbeamercolor{talktitle}{bg=csugreen,fg=white}
+  \setbeamercolor{block title alerted}{bg=csugold}
+  \setbeamercolor{block body alerted}{bg=orangelight}
+
+}
+\renewcommand{\footnoterule}{}
+\renewcommand{\hat}[1]{\widehat{#1}}
+\newcommand{\sourcenum}[3]{$^{\textcolor{bluemain} #1}$\let\thefootnote\relax
+  \footnotetext{\begin{flush#2}\textcolor{bluemain}
+      {\tiny $^{#1}$ #3}\end{flush#2}}} 
+\newcommand{\source}[2]{\let\thefootnote\relax\footnotetext{\begin{flush#1}
+      \textcolor{bluemain}{\tiny Source: #2}\end{flush#1}}}  
+
+\newcommand{\alg}[1]{\textcolor{csugreen}{#1}}
+\newcommand{\alo}[1]{\textcolor{csugold}{#1}}
+\newcommand{\alr}[1]{\textcolor{redmain}{#1}}
+\newcommand{\alb}[1]{\textcolor{bluemain}{#1}}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\tCV}{\widehat{t}}
+\newcommand{\tmax}{t_{\max}}
+\newcommand{\cvriskN}[2]{\hat{R}_{#1}\left( #2\right)}
+\newcommand{\ols}{\hat\beta^0}
+\newcommand{\Zrv}{\mathcal{Z}}
+\newcommand{\GL}{\mathcal{G}}
+
+\newcommand{\vsp}{\vspace{.2in}}
+\usefonttheme{serif}
+\setbeamertemplate{blocks}[default]
+\setbeamertemplate{navigation symbols}{}
+\usefonttheme{structuresmallcapsserif}
+
+\setbeamertemplate{footline}[frame number]
+\setbeamertemplate{footline}{%
+  \raisebox{5pt}{\makebox[\paperwidth]{\hfill\makebox[10pt]{\alg{\scriptsize\insertframenumber\;\;}}}}}
+
+\DeclareMathOperator*{\argmin}{\arg\!\min} % thanks, wikipedia!
+\DeclareMathOperator{\Aut}{Aut}
+
+\theoremstyle{plain}
+\newtheorem{queo}{Question}
+\newenvironment{que}{\begin{queo}}{\end{queo}} 
+\newtheorem{thmo}{Theorem}
+\newenvironment{thm}{\begin{thmo}}{\end{thmo}} 
+\newtheorem{coroo}{Corollary}
+\newenvironment{coro}{\begin{coroo}}{\end{coroo}} 
+\newtheorem{probo}{Problem}
+\newenvironment{prob}{\begin{probo}}{\end{probo}} 
+\newtheorem{algoo}{Algorithm}
+\newenvironment{algo}{\begin{algoo}}{\end{algoo}} 
+\newtheorem{remo}{Remark}
+\newenvironment{rem}{\begin{remo}}{\end{remo}} 
+
+\newtheorem{statModel}{Model}
+\newenvironment{model}{\begin{statModel}}{\end{statModel}} 
+\newtheorem{assump}{Assumptions}
+\newenvironment{assumptions}{\begin{assump}}{\end{assump}} 
+\newtheorem{noteReminder}{Note}
+\newenvironment{notes}{\begin{noteReminder}}{\end{noteReminder}} 
+
+
+\newcommand{\MM}{\mathcal{M}}
+\newcommand{\RR}{\mathcal{R}}
+\newcommand{\LL}{\mathcal{L}}
+
+\xdef\j{0} % the node number is stored globally
+\tikzset{
+  color0/.style = {fill=black!25},
+  color1/.style = {fill=black!75},
+  setcolor/.code = {
+    \tikzmath{
+      int \j, \k;
+      \j = \j+1;
+      \k = mod((\j <= #1 ? \j+1:\j), 2);
+    }
+    \xdef\j{\j}
+    \pgfkeysalso{node contents={}, color\k}
+  },
+  graphs/mygraph/.style = {
+    nodes={draw, circle, setcolor=#1}, clockwise, radius=#1*.25cm, empty nodes, n=#1
+  }
+}
+
+
+\newcommand{\x}{\mathbf{x}}
+\newcommand{\X}{\mathbb{X}}
+\newcommand{\hbeta}{\hat{\beta}}
+\newcommand{\MSE}{\textrm{MSE}} 
+\newcommand{\AMSE}{\textrm{AMSE}} 
+\newcommand{\hbetag}{\hbeta_{\textrm{good}}} 
+\newcommand{\hbetar}[1]{\hat{\beta}_{\textrm{ridge},#1}}
+\renewcommand{\v}{\mathbf{v}}
+\renewcommand{\u}{\mathbf{u}}
+\newcommand{\bmto}{\rightarrowtail}
+
+\begin{document}
+
+%----------------- 
+\begin{frame}
+%\frametitle{Tensors: different things to different people}
+
+
+\begin{tikzpicture}[
+block/.style={
+%  draw, 
+%  fill=white, 
+  text width=0.5*\columnwidth, 
+  anchor=west,
+  minimum height=1cm,
+  rounded corners 
+  }, 
+font=\small
+]
+
+\node[block, align=left] (Pt1) at (-4,3.5) {
+    {\visible<1>{{\color{greenstruct}Hamilton}}}};
+\node[block, align=left] (Pt1) at (4,3) {
+    {\visible<1>{{\color{greenstruct}Cauchy}}}};
+\node[block, align=left] (Pt1) at (-4,3) {
+    {\visible<1>{{\color{greenstruct}Gauss}}}};
+\node[block, align=left] (Pt1) at (-1,2) {
+    {\visible<1>{{\color{greenstruct}Ricci}}}};
+\node[block, align=left] (Pt1) at (-3,2) {
+    {\visible<1>{{\color{greenstruct}Levi-Civita}}}};
+\node[block, align=left] (Pt1) at (4,0.5) {
+    {\visible<1>{{\color{greenstruct}Whitney}}}};
+\node[block, align=left] (Pt1) at (3,1.5) {
+    {\visible<1>{{\color{greenstruct}Dieudonn\'{e}}}}};
+\node[block, align=left] (Pt1) at (3,4) {
+    {\visible<1>{{\color{greenstruct}Dirac}}}};
+\node[block, align=left] (Pt1) at (2,2) {
+    {\visible<1>{{\color{greenstruct}Kronecker}}}};
+\node[block, align=left] (Pt1) at (-3,1) {
+    {\visible<1>{{\color{greenstruct}Takemura}}}};
+\node[block, align=left] (Pt1) at (-4,0) {
+    {\visible<1>{{\color{greenstruct}MacCullagh}}}};
+        
+
+% Algebra
+\node (H)  at (5,3) {{\visible<10>{$\{abc\}=(U_{a+c}-U_a-U_c)(b)$}}};
+\node (S)  at (5,2) {{\visible<2>{$[x,y]=xy-yx$}}};
+\node (T) at (5,1){{\visible<3>{$A\otimes B$}}};
+\node (K) at (5,0) {{\visible<4>{$K_*(F) = T^*F/(a\otimes (1-a))$}}};
+\node (J) at (5,4) {{\visible<5>{$\Leftcircle \mathfrak{sl}_3(\mathbb{C}) \Rightcircle\cong \mathbb{C}^2$}}};
+
+
+% Geometry.
+\node (De) at (-2,5.75) {{\visible<2>{$dx_1\wedge\cdots \wedge dx_s$}}};
+\node (G) at (-2, 4.75) {{\visible<3>{$R_{i_1\dots i_s}^{j_1\dots j_t}$}}};
+\node (R) at (-1, 3.75) {{\visible<4>{$R(u,v)w=\nabla_u\nabla_v w-\nabla_v\nabla_u w-\nabla_{[u,v]}w$}}};
+
+% Data
+
+\node (D) at (-2,3) {{\visible<5>{
+$\begin{bmatrix} 1 & 1\\ 1 & -1 \end{bmatrix}\otimes \begin{bmatrix} 0 & 1\\ 1 & 0 \end{bmatrix}$
+}}};
+\node (P) at (-2,1) {{\visible<5>{
+$\begin{array}{|cc|c|} \hline r & c & v\\ \hline\hline 1 & 5 & 0.7\\ 101 & 12 & -1.1\\ 8 & 50 & -9\\ \vdots & \vdots & \vdots 
+\end{array}$}}};
+
+\node (M) at (1,1) {
+{\visible<4>{
+   \begin{tikzpicture}
+	\coordinate (A1) at (.5,0);
+	\coordinate (A2) at (2.5,0);
+	\coordinate (A3) at (3.5,0.7);
+	\coordinate (A4) at (1.7,0.7);
+	\coordinate (A5) at (.5,3);
+	\coordinate (A6) at (2.5,3);
+	\coordinate (A7) at (3.5,3.7);
+	\coordinate (A8) at (1.7,3.7);
+	\node at (1.5,0.5) {1 0 1 4 3 0}; 
+	\node at (1.5,1.0) {9 0 8 2 3 1}; 
+	\node at (1.5,1.5) {2 0 7 2 3 0}; 
+	\node at (1.5,2.0) {4 0 2 0 3 4}; 
+	\node at (1.5,2.5) {0 0 5 2 3 0}; 
+	
+	\node[color=gray] at (2,0.75) {1 8 8 7 3 6}; 
+	\node[color=gray] at (2,1.25) {7 3 7 0 9 7}; 
+	\node[color=gray] at (2,1.75) {8 0 1 9 9 2}; 
+	\node[color=gray] at (2,2.25) {7 0 5 4 3 5}; 
+	\node[color=black!70] at (2,2.75) {2 6 1 2 8 7}; 
+	
+	\node[color=black!60] at (2.5,1.0) {.  .  .  7 3 6}; 
+	\node[color=black!60] at (2.5,1.5) {.  .  .  0 9 7}; 
+	\node[color=black!60] at (2.5,2.0) {.  .  .  9 9 2}; 
+	\node[color=black!60] at (2.5,2.5) {.  .  .  4 3 5}; 
+	\node[color=black!60] at (2.5,3.0) {2 6 1 2 8 7}; 
+	
+	\draw[dashed] (A1) -- (A2);
+	\draw[dashed] (A2) -- (A3);
+	\draw[dotted] (A3) -- (A4);
+	\draw[dotted] (A4) -- (A1);
+	\draw[dotted] (A4) -- (A8);
+	\draw[dashed] (A1) -- (A5);
+	\draw[dotted] (A5) -- (A6);
+	\draw[dotted] (A6) -- (A7);
+	\draw[dashed] (A7) -- (A8);
+	\draw[dashed] (A8) -- (A5);
+	\draw[dotted] (A2) -- (A6);
+	\draw[dashed] (A3) -- (A7);
+    \end{tikzpicture}
+}}};
+
+
+% Physics
+\node (B) at (6.5, 5.5) {{\visible<6>{
+$\frac{1}{\sqrt{2}}\langle 00|+\langle 11|$
+}}};
+
+\node (S) at (3.5,5.5) {
+{\visible<2>{
+    \begin{tikzpicture}
+	\coordinate (A) at (3,2.2);
+	\coordinate (B) at (0.5,1.4);
+	\coordinate (C) at (2,0.5);
+	\coordinate (D) at (4,0);
+%	\draw [fill=blue] (A) circle (2pt) node [left] {};
+	\draw[fill=green, fill opacity=0.25] plot [smooth cycle] 
+		coordinates{(0.5,0)  (2,0)  (2,1) (1,1.5) (1.5,2) (1,2) (0.5,1.7)};
+
+	\node (Q1) at (1,2.5) {$\sigma_{y}$};
+	\node (Q2) at (1.75,1.5) {$\tau_{xy}$};
+	\node (Q3) at (2.5,1) {$\sigma_{x}$};
+	
+	\draw plot  coordinates { (0.5,0.5) (1.5,0.5) (1.5,1.5) (0.5,1.5) (0.5,0.5)};
+	\draw [-latex, black, thick] (1,1.5) -- (Q1);
+	\draw [-latex, blue, thick] (0.5,1.5) -- (Q2);
+	\draw [-latex, blue, thick] (1.5,0.5) -- (1.5,1.25);
+	\draw [-latex, black, thick] (1.5,1) -- (Q3);
+	\draw [-latex, red, thick, shorten >= 1.00cm] (A) -- (B);
+	\draw [-latex, red, thick, shorten >= 1.00cm] (C) -- (D);
+    \end{tikzpicture}
+}}};
+
+\end{tikzpicture}
+\end{frame}
+
+\end{document}
