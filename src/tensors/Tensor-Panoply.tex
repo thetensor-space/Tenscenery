@@ -140,6 +140,51 @@
 \newtheorem{noteReminder}{Note}
 \newenvironment{notes}{\begin{noteReminder}}{\end{noteReminder}} 
 
+  \tikzset{pics/.cd,
+  cube/.style args={#1/#2/#3/#4}{code={
+  \coordinate (O) at (0,0,0);
+  \coordinate (A) at (0,#2,0);
+  \coordinate (B) at (0,#2,#3);
+  \coordinate (C) at (0,0,#3);
+  \coordinate (D) at (#1,0,0);
+  \coordinate (E) at (#1,#2,0);
+  \coordinate (F) at (#1,#2,#3);
+  \coordinate (G) at (#1,0,#3);
+  \draw[black,fill=black!80] (O) -- (C) -- (G) -- (D) -- cycle;
+  \draw[black,fill=black!30] (O) -- (A) -- (E) -- (D) -- cycle;
+  \draw[black,fill=black!10] (O) -- (A) -- (B) -- (C) -- cycle;
+  \draw[black,fill=black!20,opacity=0.8] (D) -- (E) -- (F) -- (G) -- cycle;
+  \draw[black,fill=black!20,opacity=0.6] (C) -- (B) -- (F) -- (G) -- cycle;
+  \draw[black,fill=black!20,opacity=0.8] (A) -- (B) -- (F) -- (E) -- cycle;
+  \node at (0.5*#1,0.5*#2,0.5*#3) {#4};
+  }}}
+  \tikzset{pics/.cd,
+  lwing/.style args={#1/#2/#3/#4}{code={
+  \coordinate (O) at ( 0, 0, 0);
+  \coordinate (A) at ( 0, 0,#3);
+  \coordinate (B) at ( 0,#2,#3);
+  \coordinate (C) at ( 0,#2, 0);
+  \draw[black,fill=red!20] (O) -- (A) -- (B) -- (C) -- cycle;
+  \node at (0,0.5*#2,0.5*#3) {#4};
+  }}}
+  \tikzset{pics/.cd,
+  mwing/.style args={#1/#2/#3/#4}{code={
+  \coordinate (O) at ( 0, 0, 0);
+  \coordinate (A) at (#1, 0, 0);
+  \coordinate (B) at (#1,#2, 0);
+  \coordinate (C) at ( 0,#2, 0);
+  \draw[black,fill=green!20] (O) -- (A) -- (B) -- (C) -- cycle;
+  \node at (0.5*#1,0.5*#2,0) {#4};
+  }}}
+  \tikzset{pics/.cd,
+  rwing/.style args={#1/#2/#3/#4}{code={
+  \coordinate (O) at ( 0, 0, 0);
+  \coordinate (A) at (#1, 0, 0);
+  \coordinate (B) at (#1, 0,#3);
+  \coordinate (C) at ( 0, 0,#3);
+  \draw[black,fill=blue!20] (O) -- (A) -- (B) -- (C) -- cycle;
+  \node at (0.5*#1,0,0.5*#3) {#4};
+  }}}
 
 \newcommand{\MM}{\mathcal{M}}
 \newcommand{\RR}{\mathcal{R}}
@@ -193,55 +238,61 @@ block/.style={
   }, 
 font=\small
 ]
+\fill[white] (-8,-1) to (8,8);
 
-\node[block, align=left] (Pt1) at (-4,3.5) {
-    {\visible<1>{{\color{greenstruct}Hamilton}}}};
+\node[block, align=left] (Pt1) at (-3.5,4) {
+    {\visible<1>{{\color{greenstruct}{\sf Hamilton}}}}};
 \node[block, align=left] (Pt1) at (4,3) {
-    {\visible<1>{{\color{greenstruct}Cauchy}}}};
+    {\visible<3>{{\color{greenstruct}{\sf Cauchy}}}}};
 \node[block, align=left] (Pt1) at (-4,3) {
-    {\visible<1>{{\color{greenstruct}Gauss}}}};
+    {\visible<5>{{\color{greenstruct}{\sf Gauss}}}}};
 \node[block, align=left] (Pt1) at (-1,2) {
-    {\visible<1>{{\color{greenstruct}Ricci}}}};
+    {\visible<7>{{\color{greenstruct}{\sf Ricci}}}}};
 \node[block, align=left] (Pt1) at (-3,2) {
-    {\visible<1>{{\color{greenstruct}Levi-Civita}}}};
+    {\visible<9>{{\color{greenstruct}{\sf Levi-Civita}}}}};
 \node[block, align=left] (Pt1) at (4,0.5) {
-    {\visible<1>{{\color{greenstruct}Whitney}}}};
+    {\visible<11>{{\color{greenstruct}{\sf Whitney}}}}};
 \node[block, align=left] (Pt1) at (3,1.5) {
-    {\visible<1>{{\color{greenstruct}Dieudonn\'{e}}}}};
+    {\visible<13>{{\color{greenstruct}{\sf Dieudonn\'{e}}}}}};
 \node[block, align=left] (Pt1) at (3,4) {
-    {\visible<1>{{\color{greenstruct}Dirac}}}};
+    {\visible<15>{{\color{greenstruct}{\sf Dirac}}}}};
 \node[block, align=left] (Pt1) at (2,2) {
-    {\visible<1>{{\color{greenstruct}Kronecker}}}};
-\node[block, align=left] (Pt1) at (-3,1) {
-    {\visible<1>{{\color{greenstruct}Takemura}}}};
+    {\visible<17>{{\color{greenstruct}{\sf Kronecker}}}}};
 \node[block, align=left] (Pt1) at (-4,0) {
-    {\visible<1>{{\color{greenstruct}MacCullagh}}}};
+    {\visible<21>{{\color{greenstruct}{\sf MacCullagh}}}}};
         
 
 % Algebra
-\node (H)  at (5,3) {{\visible<10>{$\{abc\}=(U_{a+c}-U_a-U_c)(b)$}}};
+\node (H)  at (5,3) {{\visible<2>{$\{abc\}=(U_{a+c}-U_a-U_c)(b)$}}};
 \node (S)  at (5,2) {{\visible<2>{$[x,y]=xy-yx$}}};
-\node (T) at (5,1){{\visible<3>{$A\otimes B$}}};
-\node (K) at (5,0) {{\visible<4>{$K_*(F) = T^*F/(a\otimes (1-a))$}}};
-\node (J) at (5,4) {{\visible<5>{$\Leftcircle \mathfrak{sl}_3(\mathbb{C}) \Rightcircle\cong \mathbb{C}^2$}}};
+\node (S)  at (5,2) {{\visible<10>{
+\begin{tikzpicture}
+  \pic at (0,0,0) {cube={2/2/2/T}};
+  \pic at (0,0,2) {lwing={2/2/2/F}};
+  \pic at (0,2,0) {mwing={2/2/2/G}};
+\end{tikzpicture}
+}}};
+\node (T) at (5,1){{\visible<18>{$A\otimes B$}}};
+%\node (K) at (5,0) {{\visible<2>{$K_*(F) = T^*F/(a\otimes (1-a))$}}};
+\node (J) at (5,4) {{\visible<18>{$\Leftcircle \mathfrak{sl}_3(\mathbb{C}) \Rightcircle\cong \mathbb{C}^2$}}};
 
 
 % Geometry.
-\node (De) at (-2,5.75) {{\visible<2>{$dx_1\wedge\cdots \wedge dx_s$}}};
-\node (G) at (-2, 4.75) {{\visible<3>{$R_{i_1\dots i_s}^{j_1\dots j_t}$}}};
-\node (R) at (-1, 3.75) {{\visible<4>{$R(u,v)w=\nabla_u\nabla_v w-\nabla_v\nabla_u w-\nabla_{[u,v]}w$}}};
+\node (De) at (-2,5.75) {{\visible<4>{$dx_1\wedge\cdots \wedge dx_s$}}};
+\node (G) at (-2, 4.75) {{\visible<12>{$R_{i_1\dots i_s}^{j_1\dots j_t}$}}};
+\node (R) at (-1, 3.75) {{\visible<20>{$R(u,v)w=\nabla_u\nabla_v w-\nabla_v\nabla_u w-\nabla_{[u,v]}w$}}};
 
 % Data
 
-\node (D) at (-2,3) {{\visible<5>{
+\node (D) at (-2,3) {{\visible<6>{
 $\begin{bmatrix} 1 & 1\\ 1 & -1 \end{bmatrix}\otimes \begin{bmatrix} 0 & 1\\ 1 & 0 \end{bmatrix}$
 }}};
-\node (P) at (-2,1) {{\visible<5>{
+\node (P) at (-2,1) {{\visible<14>{
 $\begin{array}{|cc|c|} \hline r & c & v\\ \hline\hline 1 & 5 & 0.7\\ 101 & 12 & -1.1\\ 8 & 50 & -9\\ \vdots & \vdots & \vdots 
 \end{array}$}}};
 
 \node (M) at (1,1) {
-{\visible<4>{
+{\visible<22>{
    \begin{tikzpicture}
 	\coordinate (A1) at (.5,0);
 	\coordinate (A2) at (2.5,0);
@@ -286,12 +337,12 @@ $\begin{array}{|cc|c|} \hline r & c & v\\ \hline\hline 1 & 5 & 0.7\\ 101 & 12 & 
 
 
 % Physics
-\node (B) at (6.5, 5.5) {{\visible<6>{
+\node (B) at (6.5, 5.5) {{\visible<8>{
 $\frac{1}{\sqrt{2}}\langle 00|+\langle 11|$
 }}};
 
 \node (S) at (3.5,5.5) {
-{\visible<2>{
+{\visible<16>{
     \begin{tikzpicture}
 	\coordinate (A) at (3,2.2);
 	\coordinate (B) at (0.5,1.4);

@@ -1,0 +1,27 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  To create image run: (for Windows use imgconvert)
+%%
+%%  convert -verbose -delay 50 -loop 0 -density 300 -resize 640x480 <name>.pdf <name>.gif
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[beamer,tikz,preview]{standalone}
+%\documentclass{beamer}
+
+\input{header.tex}
+
+\begin{document}
+\begin{frame}[fragile]
+
+\begin{tikzcd}[framed]%[cramped]
+\begin{matrix}A_2\\ \times\\ A_1\end{matrix}
+	\arrow[rightarrowtail]{d}{*}
+ &  
+\begin{matrix}B_2\\ \times \\ B_1\end{matrix}
+    \arrow[yshift=-3ex]{l}{\phi_1}
+    \arrow[yshift=3ex]{l}{\phi_2}
+	\arrow[rightarrowtail]{d}{\circ}\\
+A_0\arrow{r}{\phi_0} &  B
+\end{tikzcd}
+
+\end{frame}
+\end{document}
